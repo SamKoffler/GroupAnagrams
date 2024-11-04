@@ -1,0 +1,11 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        #idea: make a dict that counts all them up, with alpha words as key and anagrams as list of values
+        a_dict = {}
+        for i in range(len(strs)):
+            temp = ''. join(sorted(strs[i]))
+            if temp not in a_dict:
+                a_dict[temp]=[strs[i]]
+            else:
+                a_dict[temp].append(strs[i])
+        return list(a_dict.values())
